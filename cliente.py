@@ -33,3 +33,6 @@ send_command("set", "luz_sala_reunioes", "ligado")
 print("Teste GET novamente")
 send_command("get", "luz_sala_reunioes")
 
+print(" teste GET all")
+send_command("GET ALL","GET ALL")
+

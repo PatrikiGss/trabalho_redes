@@ -16,6 +16,7 @@ device_states = {
     "ar_escritorios": "desligado",
     "luz_sala_reunioes": "desligado",
     "ar_sala_reunioes": "desligado"
+    "All"
 }
 
 def handle_client(data, address):
@@ -29,6 +30,9 @@ def handle_client(data, address):
             "locate": locate,
             "state": device_states.get(locate, "unknown")
         }
+    elif command == "GET ALL":
+        response = device_states
+
     elif command == 'set':
         state = message['state']
         device_states[locate] = state
