@@ -11,11 +11,11 @@ def send_command(command, locate, state=None):
             message["state"] = state
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        server_address = ('127.0.0.1', 5000)  # Use o endereço IP local para teste
-        sock.sendto(json.dumps(message).encode('utf-8'), server_address)
+        endereço_servidor = ('127.0.0.1', 5000)
+        sock.sendto(json.dumps(message).encode('utf-8'), endereço_servidor)
         data, _ = sock.recvfrom(1024)
-        response = json.loads(data.decode('utf-8'))
-        print(response)
+        resposta = json.loads(data.decode('utf-8'))
+        print(resposta)
     except socket.error as e:
         print(f"Erro de socket: {e}")
     except json.JSONDecodeError:
@@ -23,16 +23,16 @@ def send_command(command, locate, state=None):
     finally:
         sock.close()
 
-# Exemplo de uso
-print("Teste GET")
+
+print("GET")#olhando o estado inicial do dispositivo luz sala de reuniao.
 send_command("get", "luz_sala_reunioes")
 
-print("Teste SET")
+print("SET")#seta um novo estado, "ligado", ou "desligado".
 send_command("set", "luz_sala_reunioes", "ligado")
 
-print("Teste GET novamente")
+print("GET")# olhando novamente o estado do disposivo apos alteração.
 send_command("get", "luz_sala_reunioes")
 
-print(" teste GET all")
+print("GET all")#retorna todos os dispositivos.
 send_command("GET ALL","GET ALL")
 
