@@ -1,0 +1,20 @@
+{
+    "arquivos": [
+        {
+            "nome": "Anderson",
+            "tamanho": 21
+        },
+        {
+            "nome": "Lara",
+            "Tamanho": 18
+        },
+        {
+            "nome": "foto",
+            "tamanho": 12
+        },
+        {
+            "nome": "foto.jpg",
+            "tamanho": 12
+        }
+    ]
+}
